@@ -25,6 +25,7 @@ jobs:
         run: echo "sdk.dir=$ANDROID_HOME" > local.properties
       - name: Build APK
         run: |
+          set -o pipefail
           chmod +x gradlew
           ./gradlew assembleDebug --stacktrace --refresh-dependencies \
             -Dorg.gradle.internal.http.connectionTimeout=120000 \
